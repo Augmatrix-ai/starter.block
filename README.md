@@ -1,10 +1,22 @@
 # Project Title
 
 ## Introduction
-This project is designed to [briefly describe the purpose and goal of your project]. It includes the following components:
+This project is designed to create customosized block componentes(PdfOcr, Split Pdf, ....) like these components can be done very easily by using this basic starter package. It includes the following components:
+├── README.md
+├── client.py
+├── deployment
+│   ├── Dockerfile
+│   └── entrypoint.sh
+├── main.py
+├── requirments.txt
+├── structure.json
+├── testdata
+│   └── single_pdf.pdf
+└── unittests
+    └── __init__.py
 
-- `client.py`: [Explain the purpose of this file]
-- `main.py`: [Provide a brief overview of the main functionality]
+- `client.py`: this file will help to check the connection of the code with server
+- `main.py`: this the server file which can help to 
 - `deployment/`:
   - `Dockerfile`: [Explain the contents and purpose of the Dockerfile]
   - `entrypoint.sh`: [Briefly describe the role of the entrypoint script]
