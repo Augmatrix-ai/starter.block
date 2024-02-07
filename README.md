@@ -138,6 +138,43 @@ This code seems to be a part of a larger system for managing services and server
 
 #### `deployment/`
 - `Dockerfile`: This Dockerfile includes the basic installations required for the specified block. It provides a standardized environment for running the block in a Docker container.
+```bash
+FROM ubuntu:latest
+
+# Set the timezone without interaction
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update the package repository and install necessary packages
+RUN apt-get update && \
+    apt-get install -y \
+    python3-dev \
+    python3-pip \
+    python3-virtualenv \
+    curl \
+	git \
+    screen && \
+    DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata 
+# Set the timezone without interaction
+ENV TZ=UTC
+
+# Copy all files local to image to created Directory 
+RUN mkdir /app
+COPY ./ /app/.
+COPY /deployment/entrypoint.sh .
+
+# Install Python packages which is requirement.txt file
+RUN pip3 install -r /app/requirments.txt
+
+# Set permissions and convert line endings
+RUN chmod +x entrypoint.sh && \
+    sed -i -e 's/\r$//' entrypoint.sh
+
+# Set the entrypoint to run 
+ENTRYPOINT ["./entrypoint.sh"]
+
+# Default command to make image alive
+CMD ["sleep", "infinity"]
+```
 - `entrypoint.sh`: A script that runs the block process in the background inside the Docker image.
 
 #### `requirements.txt`
