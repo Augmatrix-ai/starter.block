@@ -1,33 +1,47 @@
-# Project Title
+# Project Title: Custom Block Components Starter Package
 
 ## Introduction
-This project is designed to create customosized block componentes(PdfOcr, Split Pdf, ....) like these components can be done very easily by using this basic starter package. It includes the following components:
-```bash 
+The Custom Block Components Starter Package is a project designed to facilitate the creation of customized block components for various functionalities such as PdfOcr, Split Pdf, etc. This starter package provides a foundational structure and essential files to make the development of these components easy and efficient. The project structure includes the following components:
+
+### File Structure
+```bash
 ├── README.md
 ├── client.py
 ├── deployment
 │   ├── Dockerfile
 │   └── entrypoint.sh
 ├── main.py
-├── requirments.txt
+├── requirements.txt
 ├── structure.json
 ├── testdata
 │   └── single_pdf.pdf
 └── unittests
     └── __init__.py
 ```
-- `client.py`: this file will help to check the connection of the code with server
-- `main.py`: this the server file which can help to 
-- `deployment/`:
-  - `Dockerfile`: [Explain the contents and purpose of the Dockerfile]
-  - `entrypoint.sh`: [Briefly describe the role of the entrypoint script]
-- `requirments.txt`: [List the dependencies required for running the project]
-- `structure.json`: [Explain the significance of this JSON file]
-- `testdata/`:
-  - `single_pdf.pdf`: [Specify the purpose of the test PDF file]
-- `unittests/`:
-  - `__init__.py`: [Briefly describe the purpose of this file]
 
+#### `client.py`
+This file serves as a connection checker for the block with the server. It allows users to verify the connectivity of the block.
+
+#### `main.py`
+The server file responsible for coordinating with the main engine. It acts as the central hub for managing and executing the block components.
+
+#### `deployment/`
+- `Dockerfile`: This Dockerfile includes the basic installations required for the specified block. It provides a standardized environment for running the block in a Docker container.
+- `entrypoint.sh`: A script that runs the block process in the background inside the Docker image.
+
+#### `requirements.txt`
+This file contains the necessary Python installations required for the project. Additional installations can be added based on the specific needs of the project, and they can be installed using pip or Python.
+
+#### `structure.json`
+A JSON file outlining the data format, project structure, and package details. It serves as documentation for developers working on the project.
+
+#### `testdata/`
+- `single_pdf.pdf`: Sample test data provided for testing and experimentation with the block components.
+
+#### `unittests/`
+This folder contains the test cases for the project. The code must pass these test cases for approval, ensuring the reliability and functionality of the block components.
+
+The provided structure aims to create a cohesive and organized foundation for building customized block components. Developers can extend this framework by adding specific functionalities and dependencies as per the project requirements. The inclusion of test cases emphasizes the importance of code quality and functionality verification.
 ## Docker Image Building and Pushing to Docker Hub
 
 ### Building the Docker Image
