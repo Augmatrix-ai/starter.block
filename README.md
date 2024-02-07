@@ -20,10 +20,60 @@ The Custom Block Components Starter Package is a project designed to facilitate 
 ```
 
 #### `client.py`
-This file serves as a connection checker for the block with the server. It allows users to verify the connectivity of the block.
+client.py serves as a connection checker for the block with the server. It allows users to verify the connectivity of the block.
+```bash
+# Import the ClientRunner class from the augmatrix.block_service module.
+# This class is used to create a client instance that can communicate with a specified server.
+from augmatrix.block_service.client_runner import ClientRunner
+
+def main():
+    """
+    The main function where we initialize the client, prepare inputs and properties,
+    and make a function call to the server using the Augmatrix SDK.
+    """
+    
+    # Initialize the client with the server's URL.
+    # Replace 'http://0.0.0.0:8082/' with the actual server URL you wish to communicate with.
+    client = ClientRunner(url='http://0.0.0.0:8082/')
+
+    # Define the inputs to be sent to the server.
+    # These inputs can vary based on the server's expected parameters.
+    inputs = {
+        "name": "Arya"  # Example input, in this case, a name.
+    }
+
+    # Define additional properties or arguments for the function call.
+    # These properties can be used to modify the behavior of the called function.
+    properties = {
+        "message": "Welcome to Augmatrix SDK!"  # Example property to send a welcome message.
+    }
+    
+    # If the server requires authentication, credentials can be provided here.
+    # This example uses an empty dictionary as a placeholder.
+    credentials = {}
+
+    # Make the function call with the specified structure, inputs, properties, and credentials.
+    # 'structure.json' should be the path to a JSON file defining the function call structure.
+    # This example assumes 'structure.json' is correctly formatted and located in the same directory.
+    outputs = client.call_function(
+        structure="structure.json",
+        inputs=inputs,
+        func_args=properties,
+        credentials=credentials
+    )
+
+    # Print the outputs returned from the server after the function call.
+    print(outputs)
+
+# Checks if the script is being run directly and, if so, calls the main function.
+# This is a common Python idiom to make the script executable as a standalone script
+# or allow it to be imported without executing the main function automatically.
+if __name__ == "__main__":
+    main()
+```
 
 #### `main.py`
-The server file responsible for coordinating with the main engine. It acts as the central hub for managing and executing the block components.
+the main.py files acts as server file responsible for the central hub for managing and executing the block components.
 
 #### `deployment/`
 - `Dockerfile`: This Dockerfile includes the basic installations required for the specified block. It provides a standardized environment for running the block in a Docker container.
