@@ -1,7 +1,6 @@
 import io
 from typing import Dict, List, Tuple
 from augmatrix.block_service.service_runner import ServerManager, ServiceRunner
-import fitz
 
 class StarterTask(ServiceRunner):
     def __init__(self, logger: object) -> None:
