@@ -22,7 +22,7 @@ The Custom Block Components Starter Package is a project designed to facilitate 
 #### `client.py`
 client.py serves as a connection checker for the block with the server. It allows users to verify the connectivity of the block.
 ```bash
-# Import the ClientRunner class from the augmatrix.block_service module.
+####Import the ClientRunner class from the augmatrix.block_service module.
 # This class is used to create a client instance that can communicate with a specified server.
 from augmatrix.block_service.client_runner import ClientRunner
 
@@ -74,6 +74,69 @@ if __name__ == "__main__":
 
 #### `main.py`
 the main.py files acts as server file responsible for the central hub for managing and executing the block components.
+```bash 
+This Python code appears to be defining a class `StarterTask` that inherits from `ServiceRunner`, and then instantiates a `ServerManager` with an instance of `StarterTask` and starts a server. Here's the breakdown of the code along with its documentation:
+
+```bash
+import io
+from typing import Dict, List, Tuple
+from augmatrix.block_service.service_runner import ServerManager, ServiceRunner
+
+class StarterTask(ServiceRunner):
+    def __init__(self, logger: object) -> None:
+        """
+        Initializes the StarterTask object.
+
+        Parameters:
+        logger (object): The logger to use for logging messages.
+        """
+        self.logger = logger
+        super().__init__(structure_json_path='./structure.json')
+
+    def run(self, inputs, properties, credentials):
+        """
+        Runs the StarterTask.
+
+        Parameters:
+        inputs (object): Input data for the task.
+        properties (Dict): Properties passed to the task.
+        credentials (Dict): Credentials passed to the task.
+
+        Returns:
+        Dict: A dictionary containing the result of the task.
+        """
+        message = 'Hi '+inputs.name + f", {properties['message']}"
+
+        return {'message': message}
+
+if __name__ == "__main__":
+    ServerManager(StarterTask(logger=None)).start(
+        host="0.0.0.0",
+        port=8082
+    )
+```
+
+Documentation:
+- `StarterTask` class:
+  - `__init__(self, logger: object) -> None`: Initializes the StarterTask object.
+    - Parameters:
+      - `logger (object)`: The logger to use for logging messages.
+  - `run(self, inputs, properties, credentials) -> Dict`: Runs the StarterTask.
+    - Parameters:
+      - `inputs (object)`: Input data for the task.
+      - `properties (Dict)`: Properties passed to the task.
+      - `credentials (Dict)`: Credentials passed to the task.
+    - Returns:
+      - `Dict`: A dictionary containing the result of the task.
+
+- `if __name__ == "__main__":` block:
+  - Instantiates a `ServerManager` with an instance of `StarterTask` and starts a server.
+  - Parameters:
+    - `host (str)`: The hostname or IP address on which the server will listen.
+    - `port (int)`: The port on which the server will listen.
+
+This code seems to be a part of a larger system for managing services and servers. The `StarterTask` class appears to be a task that can be run within this system, and it communicates with the outside world via the `run()` method. The `ServerManager` is then used to manage and run this task as a server.
+
 
 #### `deployment/`
 - `Dockerfile`: This Dockerfile includes the basic installations required for the specified block. It provides a standardized environment for running the block in a Docker container.
