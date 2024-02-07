@@ -77,7 +77,6 @@ the main.py files acts as server file responsible for the central hub for managi
 ```bash 
 This Python code appears to be defining a class `StarterTask` that inherits from `ServiceRunner`, and then instantiates a `ServerManager` with an instance of `StarterTask` and starts a server. Here's the breakdown of the code along with its documentation:
 
-```bash
 import io
 from typing import Dict, List, Tuple
 from augmatrix.block_service.service_runner import ServerManager, ServiceRunner
