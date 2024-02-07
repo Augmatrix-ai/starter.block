@@ -2,6 +2,7 @@
 
 ## Introduction
 This project is designed to create customosized block componentes(PdfOcr, Split Pdf, ....) like these components can be done very easily by using this basic starter package. It includes the following components:
+-'
 ├── README.md
 ├── client.py
 ├── deployment
@@ -14,7 +15,7 @@ This project is designed to create customosized block componentes(PdfOcr, Split 
 │   └── single_pdf.pdf
 └── unittests
     └── __init__.py
-
+'
 - `client.py`: this file will help to check the connection of the code with server
 - `main.py`: this the server file which can help to 
 - `deployment/`:
