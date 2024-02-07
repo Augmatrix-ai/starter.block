@@ -74,9 +74,8 @@ if __name__ == "__main__":
 
 #### `main.py`
 the main.py files acts as server file responsible for the central hub for managing and executing the block components.
-```bash 
-This Python code appears to be defining a class `StarterTask` that inherits from `ServiceRunner`, and then instantiates a `ServerManager` with an instance of `StarterTask` and starts a server. Here's the breakdown of the code along with its documentation:
-
+"This Python code appears to be defining a class `StarterTask` that inherits from `ServiceRunner`, and then instantiates a `ServerManager` with an instance of `StarterTask` and starts a server. Here's the breakdown of the code along with its documentation:
+```bash
 import io
 from typing import Dict, List, Tuple
 from augmatrix.block_service.service_runner import ServerManager, ServiceRunner
