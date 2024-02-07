@@ -1,4 +1,4 @@
-# Project Title: Custom Block Components Starter Package
+# Project Title: Custom Block Starter Package
 
 ## Introduction
 The Custom Block Components Starter Package is a project designed to facilitate the creation of customized block components for various functionalities such as PdfOcr, Split Pdf, etc. This starter package provides a foundational structure and essential files to make the development of these components easy and efficient. The project structure includes the following components:
