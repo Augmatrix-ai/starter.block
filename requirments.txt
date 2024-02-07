@@ -1,0 +1,2 @@
+bson
+git+https://github.com/Augmatrix-ai/augmatrixOS.git

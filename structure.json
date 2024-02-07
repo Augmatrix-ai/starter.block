@@ -1,0 +1,28 @@
+{
+    "algoType": "Map",
+    "outputs_schema": {
+        "message": {
+            "title": "Message",
+            "type_text": "Text"
+        }
+    },
+    "inputs_schema": {
+        "name": {
+            "title": "Name",
+            "is_required": true,
+            "type_text": "Text"
+        }
+    },
+    "func_args_schema": {
+        "properties": {
+            "title": "block properties Json",
+            "is_required": true,
+            "type_text": "JSON"
+        },
+        "credentials": {
+            "title": "key value credentials",
+            "is_required": true,
+            "type_text": "JSON"
+        }
+    }
+}
