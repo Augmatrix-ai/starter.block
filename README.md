@@ -23,20 +23,25 @@ To build the Docker image, follow these steps:
 1. Navigate to the root of the project where the `Dockerfile` is located.
 2. Open a terminal and run the following command:
    ```bash
-   docker build -t your-docker-username/your-image-name:tag .
+   docker build -f deployment/Dockerfile -t <your-image-name>:<tag.
    ```
-   Replace `your-docker-username`, `your-image-name`, and `tag` with appropriate values.
+   Replace  `your-image-name`, and `tag` with appropriate values.
 
 ### Pushing the Docker Image to Docker Hub
 To push the Docker image to Docker Hub, execute the following steps:
 
 1. Log in to your Docker Hub account using the command:
    ```bash
-   docker login
+   docker login registry.augmatrix.ai 
    ```
-2. Push the built image using the following command:
+2. Tag you Docker image with respect to the  docker registry 
+	```bash 
+	docker tag <your-image-name>:<tag registry.augmatrix.ai/<your-image-name>:<tag>>
+	```
+3. Push the built image using the following command:
+
    ```bash
-   docker push your-docker-username/your-image-name:tag
+   docker push registry.augmatrix.ai/<your-image-name>:<tag>
    ```
    Ensure you replace the placeholders with your actual Docker Hub username, image name, and tag.
 
